@@ -1,0 +1,8 @@
+def gen(n, k) 
+    if k < n then
+        ( print(k), gen(n,k+1))
+    else 
+        print(k)
+end
+
+gen(20,0)

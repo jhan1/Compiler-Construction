@@ -1,0 +1,14 @@
+def gen_Fibonacci a1 a2 n =
+    if n < 3 then
+        if n = 1 then 
+            a1 
+        else  
+            a2
+    else 
+        let t1 = gen_Fibonacci a1 a2 (n-2) in 
+        let t2 = gen_Fibonacci a1 a2 (n-1) in 
+        t1 + t2 
+end 
+
+let std_fib = gen_Fibonacci 1 1 in 
+    std_fib 20

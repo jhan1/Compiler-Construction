@@ -1,0 +1,9 @@
+def f(x)
+  x * 2
+end
+
+def g(y)
+  f(y) + f(4)
+end
+
+g(5)

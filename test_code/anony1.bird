@@ -1,0 +1,5 @@
+def twice f x = 
+    f (f x)
+end 
+
+twice (fun a -> a * 2) 5

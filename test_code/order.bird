@@ -1,0 +1,10 @@
+def triple f x =
+  f (f (f x))
+end 
+
+def f x = 
+    x * 2
+end
+
+let mul_8 = triple f in 
+    mul_8 8

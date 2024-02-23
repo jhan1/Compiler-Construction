@@ -1,0 +1,72 @@
+def get_list_val list index now = 
+    if now < index then 
+        get_list_val (list[1]) index (now + 1)
+    else 
+        list[ 0 ]
+end
+
+def change_list_val list index now val = 
+    if now < index then 
+        change_list_val (list[1]) index (now + 1) val
+    else 
+        list[ 0 ] := val 
+end
+
+def dfs used_col used_diff used_sum n i j =
+    let temp1 = (3,4) in 
+    let temp2 = change_list_val used_col in 
+    if i = n then 
+        1 
+    else 
+        let extra = (
+            if n - j > 1 then 
+                dfs used_col used_diff used_sum n i (j+1)
+            else 
+                0
+        ) in 
+        let sum = i + j in 
+        let diff = i - j + n - 1 in 
+        let c1 = get_list_val used_col j 0 in 
+        let c2 = get_list_val used_sum sum 0 in 
+        let c3 = get_list_val used_diff diff 0 in 
+        if (c1=false) && (c2=false) && (c3=false) then 
+            let t1 = change_list_val used_col j 0 true in 
+            let t2 = change_list_val used_sum sum 0 true in 
+            let t3 = change_list_val used_diff diff 0 true in
+            let ret = extra + (dfs used_col used_diff used_sum n (i+1) 0) in 
+            let t1 = change_list_val used_col j 0 false in 
+            let t2 = change_list_val used_sum sum 0 false in 
+            let t3 = change_list_val used_diff diff 0 false in  
+            ret          
+        else 
+            extra
+
+end
+
+def n_queens n =
+    let used_col = gen_list n false 0 in 
+    let used_diff = gen_list (2*n-1) false 0 in 
+    let used_sum = gen_list (2*n-1) false 0 in 
+    dfs used_col used_diff used_sum n 0 0
+end
+
+def gen_list length val k =
+    if k = length - 1 then 
+        (val, false)
+    else 
+        (val, (gen_list length val (k + 1 ) ) )
+end
+
+def gen_grid width height val k =
+    if k = height - 1 then 
+        ((gen_list width val 0), false) 
+    else 
+        ((gen_list width val 0), (gen_grid width height val (k + 1) ) )
+end
+
+let queen_5 = print(n_queens 5) in 
+let queen_6 = print(n_queens 6) in 
+let queen_7 = print(n_queens 7) in 
+let queen_8 = print(n_queens 8) in 
+let queen_9 = print(n_queens 9) in 
+n_queens 10

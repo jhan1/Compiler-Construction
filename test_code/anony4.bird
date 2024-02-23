@@ -1,0 +1,10 @@
+def gen a =
+    let f = (fun x -> 
+        let y = x in 
+        let x = 5 in 
+        y * x ) 
+        in 
+    f a 
+end
+
+gen 18

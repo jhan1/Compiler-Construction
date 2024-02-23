@@ -1,0 +1,9 @@
+def power p k =
+    if p = 1 then 
+        k 
+    else
+        k * (power (p-1) k)
+end 
+
+let power_of_three = power 3 in 
+    power_of_three 4

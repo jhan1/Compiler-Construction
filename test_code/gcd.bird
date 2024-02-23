@@ -1,0 +1,9 @@
+def gcd a b =
+    if a % b = 0 then 
+        b
+    else 
+        let d = (a % b) in 
+        gcd b d
+end 
+
+gcd 6 20

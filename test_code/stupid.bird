@@ -1,0 +1,9 @@
+def f n = 
+    let t = (n,n) in 
+    if n > 0 then 
+        f (n-1)
+    else 
+        t 
+end 
+
+f 2 

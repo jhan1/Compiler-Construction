@@ -1,0 +1,29 @@
+def list_gen k n  =
+    if k = n then 
+        (k, true)
+    else
+        (k, (list_gen (k + 1) n) )
+end
+
+def filter f list = 
+    let e = list[0] in 
+    let next = list[1] in
+    let flag = f e in
+    if flag then 
+        if isbool(next) then   
+            (e, true)
+        else 
+            let rest = filter f next in 
+            (e, rest)
+    else
+        if isbool(next) then
+            true 
+        else 
+            filter f next 
+
+end
+
+let len = 20 in 
+let list_gen_init = list_gen 0 in 
+let list = list_gen_init len in 
+filter ( fun x -> (x * 2 > 10) && (x * 3 < 50) ) list

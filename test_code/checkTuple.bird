@@ -1,0 +1,6 @@
+def f x =
+    x + 2
+end 
+
+let t = (1,2,3) in 
+    istuple(t)

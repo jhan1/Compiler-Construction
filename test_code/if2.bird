@@ -1,0 +1,6 @@
+let num = -18 in 
+let x = num + 3 in 
+let y =
+if num = -7 then true else false
+in 
+if y then 5 else 7

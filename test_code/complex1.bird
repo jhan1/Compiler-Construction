@@ -1,0 +1,5 @@
+let x = 1 in
+let y = 2 in 
+let z = x + y in
+let a = z * z in
+a + (x-y) * z

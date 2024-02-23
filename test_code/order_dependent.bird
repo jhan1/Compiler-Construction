@@ -1,0 +1,5 @@
+def print_num(x) 
+    print(3 * x) - print(true) 
+end
+
+print(print_num(8))

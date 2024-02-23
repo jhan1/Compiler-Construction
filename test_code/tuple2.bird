@@ -1,0 +1,3 @@
+let t = (1,false,4) in
+let n = 5 in
+(istuple(t), istuple(n))[1]
